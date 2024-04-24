@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGO Registration</title>
+ <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(40, 170, 235);
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+ </style>
+<body>
+    <center>
+  <h2>NGO Registration Form</h2>
+</center>
+  <form id="registrationForm" onsubmit="return submitForm()">
+    <div>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+    </div>
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required>
+    </div>
+    <div>
+      <label for="education">Education:</label>
+      <input type="text" id="education" required>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+<center>
+  <div id="successMessage" style="display:none;">Successfully registered!</div>
+</center>
+
+  <script >
+    function submitForm() {
+  var fullName = document.getElementById("fullName").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var education = document.getElementById("education").value;
+  document.getElementById("registrationForm").style.display = "none";
+  document.getElementById("successMessage").style.display = "block";
+  return false;
+}
+
+  </script>
+</body>
+</html>

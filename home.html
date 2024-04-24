@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Name | Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Global Styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            
+            background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-63452.jpg?size=338&ext=jpg&ga=GA1.1.2082370165.1710460800&semt=ais'); /* Replace 'your-image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+        }
+
+        /* Navigation Styles */
+        nav {
+      background-color: #080808; /* Navy blue */
+      display: flex; /* Use flexbox */
+      justify-content: center; /* Center-align items horizontally */
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #72757d; /* Darker blue on hover */
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #090a0a; /* Light blue */
+      top: 100%;
+      left: 0;
+      z-index: 1; /* Ensure dropdown appears above other elements */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    }
+
+    nav ul ul li {
+      display: block;
+      min-width: 150px; /* Set minimum width for dropdown */
+    }
+
+    nav ul ul li a {
+      padding: 10px 15px;
+      color: #333; /* Dark text color */
+    }
+
+    nav ul li:hover > ul {
+      display: block;
+    }
+        .slideshow {
+            position: relative;
+            max-width: 600px; /* Adjust max-width as needed */
+            margin: auto;
+        }
+        .slide-show {
+            display: none;
+            width: 100%; /* Make sure images fill their container */
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <center>
+            <h1>PREMA ANANDA SPRITUAL SOCIETY</h1>
+            <h3>Constitution is the Foundation of Public Life</h3>
+        </center>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a>
+                      <ul>
+                        <li><a href="mission.html">Mission</a></li>
+                        <li><a href="vission.html">Vision</a></li>
+                        <li><a href="services.html">Service</a></li>
+                      </ul>
+              </li>
+                    </li>
+                    <li><a href="#">Get Involved</a>
+                      <ul>
+                        <li><a href="request.html">Requests</a></li>
+                        <li><a href="registration.html">Registration</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                  </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="slideshow">
+        <img class="slide-show" src="https://scontent.fixc2-1.fna.fbcdn.net/v/t1.6435-9/42143651_707776299588880_3267149564431302656_n.jpg?stp=dst-jpg_p180x540&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=nFgXf-LlDiAAb4r6Q3S&_nc_ht=scontent.fixc2-1.fna&oh=00_AfA5QkmsEIzf0_SuKRquulQ61fSs676uJ1RGhJG60VtUeA&oe=664EDA55" style="display:block;">
+        <img class="slide-show" src="https://scontent.fixc2-1.fna.fbcdn.net/v/t1.6435-9/67478502_914349698931538_7883570054158090240_n.jpg?stp=dst-jpg_p180x540&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5T5zuPUr10UAb5StCMp&_nc_ht=scontent.fixc2-1.fna&oh=00_AfA3AObCGfCJia9BzeainwuCXuodK5VgjStIqlQ208LIsw&oe=664ED850" style="display: block;">
+        <img class="slide-show" src="https://scontent.fixc2-2.fna.fbcdn.net/v/t1.6435-9/70884793_953641998335641_6003008487481671680_n.jpg?stp=dst-jpg_p180x540&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=MLmOwjUrfZ8Ab6XjaNx&_nc_ht=scontent.fixc2-2.fna&oh=00_AfAFLG3aSxN6S4UuhD3_OXdXKvRKBjZWi8rMSA-mhCU2Gg&oe=664EBD10" style="display:none;">
+        <div class="prev" onclick="changeSlide(-1)"> << </div>
+        <div class="next" onclick="changeSlide(1)"> >> </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.slide-show');
+
+        function showImage(index) {
+            images.forEach(image => image.style.display = 'none');
+            images[index].style.display = 'block';
+        }
+
+        function changeSlide(n) {
+            currentImageIndex = (currentImageIndex + n + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+        showImage(currentImageIndex);
+
+        let slideshowInterval = setInterval(() => changeSlide(1), 1500);
+    </script>
+    <section class="hero">
+        <div class="container">
+            <center>
+            <h2>JAI CONSTITUTION!</h2>
+            <p>Prema Ananda Spiritual Society works to build and lead a socio-cultural reform movement in the middle-class citizens to democratize their thought so that they demand and make our democracy work to bring in a transparent and accountable governance.</p>
+        </center>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="AIMS">
+        <div class="container">
+            <center>
+            <h2>OUR AIM</h2>
+            <p>Victory to questioning!
+               Victory to truth! 
+               Victory to hard work!
+                Leadership education for youth consciousness, development, and construction!
+                Amar Bhagat Singh Youth Center - WhatsApp 9701955533 - Facebook '@premaanandasociety'
+                Prema Ananda Spiritual Organization - WhatsApp 9701955533 - Facebook '@premaanandasociety'"</p>
+                
+            </center>
+        </div>
+    </section>
+    <marquee behavior="scroll" direction="left" scrollamount="10">
+        SATYAMEVA JAYATHEY!
+    </marquee>
+
+    <!-- Footer Section -->
+    <center>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PREMA ANANDA SPRITUAL SOCIETY. All rights reserved.</p>
+        </div>
+    </footer>
+</center>
+
+</body>
+</html>
